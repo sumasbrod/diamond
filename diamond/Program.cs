@@ -6,7 +6,15 @@ namespace diamond
     {
         static void Main(string[] args)
         {
-            int width = 7;
+            //int width = 7;
+            //char Ch = 'A';
+            //int row = 0;
+            //int step = 1;
+
+            int width = 30;
+            char Ch = 'A';
+            int row = 0;
+            int step = 1;
 
             Console.WriteLine("-----------------FOR----------------");
             for (int i = 0; i < width; i++)
@@ -23,7 +31,7 @@ namespace diamond
 
             Console.WriteLine("----------------RECUR----------------");
 
-            process_diamond(7, 'A', 0, 1);
+            process_diamond(width, Ch, row, step);
         }
 
         static void process_diamond(int width, char c, int row, int rstep)
