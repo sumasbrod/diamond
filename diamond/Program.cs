@@ -11,16 +11,22 @@ namespace diamond
             //int row = 0;
             //int step = 1;
 
-            int width = 30;
+            int width = 7;
             char Ch = 'A';
             int row = 0;
             int step = 1;
 
-            Console.WriteLine("-----------------FOR----------------");
+            Console.WriteLine("-----------------FOR_TWO----------------");
             for (int i = 0; i < width; i++)
-                write_mirror_for(width, 'A', i);
+                write_mirror_for_two(width, 'A', i);
             for (int i = width - 2; i >= 0; i--)
-                write_mirror_for(width, 'A', i);
+                write_mirror_for_two(width, 'A', i);
+
+            Console.WriteLine("-----------------FOR_ONE----------------");
+            for (int i = 0; i < width; i++)
+                write_mirror_for_one(width, 'A', i);
+            for (int i = width - 2; i >= 0; i--)
+                write_mirror_for_one(width, 'A', i);
 
             Console.WriteLine("----------------WHILE----------------");
 
@@ -52,7 +58,7 @@ namespace diamond
 
         }
 
-        static void write_mirror_for(int width, char c, int row)
+        static void write_mirror_for_two(int width, char c, int row)
         {
             for (int i = 0; i < width; i++)
             {
@@ -69,6 +75,24 @@ namespace diamond
                     Console.Write(' ');
                 else
                     Console.Write((char)(c + sub));
+            }
+
+            Console.WriteLine();
+        }
+
+        static void write_mirror_for_one(int width, char c, int row)
+        {
+            int step = 1;
+            for (int i = 0; i >= 0; i += step)
+            {
+                int sub = i - width + row;
+                if ((c + sub) < c)
+                    Console.Write(' ');
+                else
+                    Console.Write((char)(c + sub));
+
+                if (i == width)
+                    step = -1;
             }
 
             Console.WriteLine();
